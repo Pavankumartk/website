@@ -46,8 +46,8 @@ const skillItems = [
 ];
 
 const sliderVideos = [
-  "/videos/women-holding-diploma.mp4",
-  "/videos/secondvideo.mp4",
+  "/videos/first.mp4",
+  "/videos/second.mp4",
   "/videos/third.mp4",
 ];
 
@@ -88,11 +88,11 @@ export default function CodingLabsPage() {
     useState<"demo" | "started" | null>(null);
 
   const previousVideo = () => {
-    setVideoOrder((current) => [current[1], current[2], current[0]]);
+    setVideoOrder((current) => [current[2], current[0], current[1]]);
   };
 
   const nextVideo = () => {
-    setVideoOrder((current) => [current[2], current[0], current[1]]);
+    setVideoOrder((current) => [current[1], current[2], current[0]]);
   };
 
   return (
@@ -209,7 +209,10 @@ export default function CodingLabsPage() {
         <section className="coding-section coding-learning">
           <div className="coding-section-copy">
             <span className="coding-pill">Flexible Learning</span>
-            <h2>Built for Every Learning Environment</h2>
+            <h2 className="coding-learning__title">
+  <span>Built for Every</span>
+  <span>Learning Environment</span>
+</h2>
             <p>
               Perfect for universities, bootcamps, corporate training, and
               online coding programs.
@@ -219,13 +222,27 @@ export default function CodingLabsPage() {
           <div className="coding-video-area">
             <div className="coding-video-deck">
               <div className="coding-video-card coding-video-card--back">
-                <video autoPlay muted loop playsInline preload="metadata">
+                <video
+                  key={`back-${videoOrder[2]}`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
                   <source src={sliderVideos[videoOrder[2]]} type="video/mp4" />
                 </video>
               </div>
 
               <div className="coding-video-card coding-video-card--middle">
-                <video autoPlay muted loop playsInline preload="metadata">
+                <video
+                  key={`middle-${videoOrder[1]}`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
                   <source src={sliderVideos[videoOrder[1]]} type="video/mp4" />
                 </video>
               </div>
