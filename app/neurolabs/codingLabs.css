@@ -88,7 +88,7 @@ a {
   position: relative;
   z-index: 2;
   align-self: center;
-  padding:35px 0 50px 50px;
+  padding:32px 0 50px 50px;
   transform: translateY(-50px);
 }
 
@@ -657,6 +657,13 @@ a {
   outline-offset: 4px;
 }
 
+
+.coding-hero h1,
+.coding-section-copy h2,
+.coding-challenges__intro h2,
+.coding-cta h2 {
+  font-size: 48px;
+}
 
 @media (max-width: 1100px) {
   .coding-shell {
@@ -1410,4 +1417,10 @@ a {
   box-shadow:
     -8px -8px 16px #ffffff,
     8px 8px 16px #c6c6c9;
+}
+@media (max-width: 700px) {
+  .coding-video-card--front video {
+    object-fit: cover !important;
+    object-position: center 20% !important;
+  }
 }
