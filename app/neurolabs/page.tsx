@@ -133,11 +133,17 @@ export default function CodingLabsPage() {
         <section className="coding-section coding-practice">
           <div className="coding-section-copy">
             <span className="coding-pill">Learn by Coding</span>
-            <h2>Master Coding with Hands-On Practice</h2>
-            <p>
-              Practice programming through interactive coding labs that turn
-              concepts into real-world skills.
-            </p>
+            <h2>
+  Master Coding with
+  <br />
+  Hands-On Practice
+</h2>
+
+<p>
+  Practice programming through interactive coding
+  <br />
+   labs that turn concepts into real-world skills.
+</p>
           </div>
 
           <div className="coding-practice-card">
@@ -209,11 +215,7 @@ export default function CodingLabsPage() {
         <section className="coding-section coding-learning">
           <div className="coding-section-copy">
             <span className="coding-pill">Flexible Learning</span>
-            <h2>
-              Built for Every&nbsp;
-              <br />
-              Learning Environment
-            </h2>
+            <h2>Built for Every<br />Learning Environment</h2>
             <p>
               Perfect for universities, bootcamps, corporate training, and
               online coding programs.
@@ -225,6 +227,7 @@ export default function CodingLabsPage() {
               <div className="coding-video-card coding-video-card--back">
                 <video
                   key={`back-${videoOrder[2]}`}
+                  className={videoOrder[2] === 0 ? "coding-first-video" : undefined}
                   autoPlay
                   muted
                   loop
@@ -238,6 +241,7 @@ export default function CodingLabsPage() {
               <div className="coding-video-card coding-video-card--middle">
                 <video
                   key={`middle-${videoOrder[1]}`}
+                  className={videoOrder[1] === 0 ? "coding-first-video" : undefined}
                   autoPlay
                   muted
                   loop
@@ -251,6 +255,7 @@ export default function CodingLabsPage() {
               <div className="coding-video-card coding-video-card--front">
                 <video
                   key={`front-${videoOrder[0]}`}
+                  className={videoOrder[0] === 0 ? "coding-first-video" : undefined}
                   autoPlay
                   muted
                   loop
