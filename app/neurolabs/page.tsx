@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Header from "../components/header/header";
+import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
 import "./codingLabs.css";
 
