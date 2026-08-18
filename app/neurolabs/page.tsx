@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Header from "../components/header/header";
+import Footer from "../components/Footer/footer";
 import "./codingLabs.css";
 
 const practiceItems = [
@@ -96,7 +98,9 @@ export default function CodingLabsPage() {
   };
 
   return (
-    <main className="coding-page">
+    <>
+      <Header />
+      <main className="coding-page">
       <div className="coding-shell">
         <nav className="coding-breadcrumb" aria-label="Breadcrumb">
           <span>Neuro Labs</span>
@@ -331,5 +335,8 @@ export default function CodingLabsPage() {
         </section>
       </div>
     </main>
+
+    <Footer />
+  </>
   );
 }
