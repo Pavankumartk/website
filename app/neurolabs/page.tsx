@@ -81,7 +81,11 @@ function CheckIcon({ color }: { color: string }) {
 
 export default function CodingLabsPage() {
   const [videoOrder, setVideoOrder] = useState([0, 1, 2]);
-  const [activeCta, setActiveCta] = useState<"demo" | "started">("demo");
+
+  // Nothing is selected initially:
+  // both CTA buttons start raised with blue text.
+  const [activeCta, setActiveCta] =
+    useState<"demo" | "started" | null>(null);
 
   const previousVideo = () => {
     setVideoOrder((current) => [current[1], current[2], current[0]]);
@@ -269,6 +273,7 @@ export default function CodingLabsPage() {
             height={505}
             alt=""
           />
+
           <div className="coding-cta__content">
             <h2>NeuroLabs Coding Labs Learn by Coding</h2>
             <p>
@@ -281,14 +286,19 @@ export default function CodingLabsPage() {
                 type="button"
                 className={activeCta === "demo" ? "is-selected" : ""}
                 onClick={() => setActiveCta("demo")}
+                onMouseLeave={() => setActiveCta(null)}
+                onBlur={() => setActiveCta(null)}
                 aria-pressed={activeCta === "demo"}
               >
                 Book a Demo
               </button>
+
               <button
                 type="button"
                 className={activeCta === "started" ? "is-selected" : ""}
                 onClick={() => setActiveCta("started")}
+                onMouseLeave={() => setActiveCta(null)}
+                onBlur={() => setActiveCta(null)}
                 aria-pressed={activeCta === "started"}
               >
                 Get Started
