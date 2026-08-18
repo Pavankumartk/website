@@ -209,10 +209,11 @@ export default function CodingLabsPage() {
         <section className="coding-section coding-learning">
           <div className="coding-section-copy">
             <span className="coding-pill">Flexible Learning</span>
-            <h2 className="coding-learning__title">
-  <span>Built for Every</span>
-  <span>Learning Environment</span>
-</h2>
+            <h2>
+              Built for Every&nbsp;
+              <br />
+              Learning Environment
+            </h2>
             <p>
               Perfect for universities, bootcamps, corporate training, and
               online coding programs.

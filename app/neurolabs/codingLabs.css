@@ -88,7 +88,7 @@ a {
   position: relative;
   z-index: 2;
   align-self: center;
-  padding: 50px 0 50px 50px;
+  padding:35px 0 50px 50px;
   transform: translateY(-50px);
 }
 
@@ -134,11 +134,12 @@ a {
 
 .coding-hero p {
   max-width: 500px;
-  margin: 32px 0 0;
+  margin:10px 0 0;
   color: var(--coding-text);
   font-size: 28px;
   line-height: 1.3;
   letter-spacing: 0.03em;
+  margin-bottom:50px;
 }
 
 .coding-hero__visual {
@@ -250,7 +251,7 @@ a {
 }
 
 .coding-challenges__intro p {
-  margin: 32px auto 0;
+  margin: 14px auto 0;
   color: var(--coding-text);
   font-size: 28px;
   line-height: 40px;
@@ -282,7 +283,7 @@ a {
     box-shadow 0.25s ease;
 }
 
-/* Interactive Coding Challenges — card hover only, non-clickable */
+
 .coding-challenge-card:hover {
   transform: translateY(-4px);
   box-shadow:
@@ -399,10 +400,7 @@ a {
   flex: 0 0 36px;
 }
 
-/* =========================================================
-   REAL-WORLD SKILL DEVELOPMENT HOVER
-   Visual hover only — not clickable
-   ========================================================= */
+
 
 .coding-skills,
 .coding-skills *,
@@ -413,7 +411,7 @@ a {
   cursor: default !important;
 }
 
-/* Left-side skill cards */
+
 .coding-skill-item {
   transition:
     transform 0.25s ease,
@@ -427,7 +425,7 @@ a {
     6px 6px 12px #c4c4c4;
 }
 
-/* Keep all text/icons inside the section non-clickable */
+
 .coding-skills a,
 .coding-skills button {
   cursor: default !important;
@@ -477,7 +475,7 @@ a {
   object-fit: cover;
 }
 
-/* What Learners Gain — hover the video boxes only, not the sentences */
+
 .coding-learning .coding-video-card {
   cursor: default;
   transition:
@@ -549,7 +547,7 @@ a {
   cursor: pointer;
 }
 
-/* Raised inner circle with outer neumorphic shadow */
+
 .coding-video-controls button::before {
   content: "";
   position: absolute;
@@ -647,7 +645,7 @@ a {
     inset 5px 5px 10px #c4c4c4;
 }
 
-/* CTA buttons: dark text while pressed/selected */
+
 .coding-cta__actions button:active,
 .coding-cta__actions button.is-selected {
   color: var(--coding-heading);
@@ -659,9 +657,7 @@ a {
   outline-offset: 4px;
 }
 
-/* =========================================================
-   LARGE TABLET / SMALL LAPTOP
-   ========================================================= */
+
 @media (max-width: 1100px) {
   .coding-shell {
     width: min(100% - 40px, 960px);
@@ -743,12 +739,10 @@ a {
   }
 }
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+
 @media (max-width: 900px) {
 
-  /* Video arrows: preserve desktop neumorphic circles on tablet */
+  
   .coding-video-controls button {
     width: 80px;
     height: 80px;
@@ -777,7 +771,7 @@ a {
 
 
 
-  /* Keep Coding Mastery pill fully visible on tablet and smaller devices */
+  
   .coding-hero__content {
     transform: translateY(0);
   }
@@ -907,9 +901,7 @@ a {
   }
 }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+
 @media (max-width: 700px) {
   .coding-shell {
     width: calc(100% - 32px);
@@ -1115,7 +1107,7 @@ a {
   }
 
 
-  /* Video arrows: same two-layer neumorphic design on mobile */
+  
   .coding-video-controls button {
     width: 62px;
     height: 62px;
@@ -1176,9 +1168,7 @@ a {
   }
 }
 
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
+
 @media (max-width: 480px) {
   .coding-shell {
     width: calc(100% - 24px);
@@ -1323,19 +1313,13 @@ a {
 }
 
 
-/* =========================================================
-   CTA BUTTONS — FINAL CLICK BEHAVIOR
-   BEFORE CLICK:
-   Book a Demo + Get Started = raised/outward + blue
-   AFTER CLICK:
-   only selected button = inset + dark
-   ========================================================= */
+
 
 .coding-cta__actions button {
   background: var(--coding-bg);
   color: var(--coding-blue);
 
-  /* Raised / upward state for BOTH buttons by default */
+  
   box-shadow:
     -8px -8px 16px #ffffff,
     8px 8px 16px #c6c6c9;
@@ -1345,7 +1329,7 @@ a {
     box-shadow 0.2s ease;
 }
 
-/* Hover must NOT make the button look pressed */
+
 .coding-cta__actions button:hover:not(.is-selected),
 .coding-cta__actions button:not(.is-selected):active {
   color: var(--coding-blue);
@@ -1354,7 +1338,7 @@ a {
     8px 8px 16px #c6c6c9;
 }
 
-/* Only the button that was clicked stays inset */
+
 .coding-cta__actions button.is-selected,
 .coding-cta__actions button.is-selected:hover,
 .coding-cta__actions button.is-selected:active {
@@ -1366,11 +1350,7 @@ a {
 }
 
 
-/* =========================================================
-   CTA RESTING STATE
-   If the pointer/focus leaves without selecting a button,
-   BOTH buttons remain identical: raised + blue.
-   ========================================================= */
+
 
 .coding-cta__actions button:not(.is-selected),
 .coding-cta__actions button:not(.is-selected):hover,
@@ -1383,7 +1363,7 @@ a {
     8px 8px 16px #c6c6c9;
 }
 
-/* Keyboard focus is visible, but does not change the neumorphic state */
+
 .coding-cta__actions button:not(.is-selected):focus-visible {
   color: var(--coding-blue);
   box-shadow:
@@ -1393,7 +1373,7 @@ a {
   outline-offset: 4px;
 }
 
-/* A clicked/selected button alone remains inset + dark */
+
 .coding-cta__actions button.is-selected,
 .coding-cta__actions button.is-selected:hover,
 .coding-cta__actions button.is-selected:focus,
@@ -1406,11 +1386,7 @@ a {
 }
 
 
-/* =========================================================
-   CTA FINAL RESET BEHAVIOR
-   Clicked button = inset while pointer remains on it.
-   Pointer leaves = state resets, both buttons raised again.
-   ========================================================= */
+
 
 .coding-cta__actions button {
   color: var(--coding-blue);
@@ -1434,71 +1410,4 @@ a {
   box-shadow:
     -8px -8px 16px #ffffff,
     8px 8px 16px #c6c6c9;
-}
-
-
-.coding-learning {
-  grid-template-columns: 500px minmax(0, 1fr);
-  gap: 56px;
-}
-
-.coding-learning .coding-section-copy {
-  width: 500px;
-  max-width: 500px;
-}
-
-.coding-learning__title {
-  width: 500px;
-  max-width: 500px !important;
-}
-
-.coding-learning__title span {
-  display: block;
-  white-space: nowrap;
-}
-
-@media (max-width: 1100px) and (min-width: 901px) {
-  .coding-learning {
-    grid-template-columns: 440px minmax(470px, 1fr);
-    gap: 42px;
-  }
-
-  .coding-learning .coding-section-copy {
-    width: 440px;
-    max-width: 440px;
-  }
-
-  .coding-learning__title {
-    width: 440px;
-    max-width: 440px !important;
-    font-size: 40px !important;
-    line-height: 1.25 !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .coding-learning .coding-section-copy {
-    width: 100%;
-    max-width: 650px;
-  }
-
-  .coding-learning__title {
-    width: 100%;
-    max-width: 650px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-@media (max-width: 700px) {
-  .coding-learning__title {
-    font-size: 30px !important;
-    line-height: 1.3 !important;
-  }
-}
-
-@media (max-width: 380px) {
-  .coding-learning__title {
-    font-size: 27px !important;
-  }
 }
