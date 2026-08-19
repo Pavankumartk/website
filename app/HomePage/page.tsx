@@ -1364,7 +1364,7 @@ function ContactUsModal({ onClose }: { onClose: () => void }) {
           <CloseIcon className={styles["book-demo-modal-close-icon"]} />
         </button>
         <div className={styles["book-demo-modal-scroll"]}>
-          <ContactUs />
+          {/* <ContactUs /> */}
         </div>
       </div>
     </div>
