@@ -130,6 +130,7 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [mobileNestedExpanded, setMobileNestedExpanded] = useState<string | null>(null);
   const [activeCustomerCategory, setActiveCustomerCategory] = useState("Industries We Serve");
   const [activeFeatureCategory, setActiveFeatureCategory] = useState("Learning");
   const [activeResourceCategory, setActiveResourceCategory] = useState("Use Cases");
@@ -168,6 +169,8 @@ export default function Header() {
   useEffect(() => {
     setOpenMenu(null);
     setMobileOpen(false);
+    setMobileExpanded(null);
+    setMobileNestedExpanded(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -208,6 +211,12 @@ export default function Header() {
 
   function toggleMobileTop(label: string) {
     setMobileExpanded((current) => (current === label ? null : label));
+    setMobileNestedExpanded(null);
+  }
+
+  function toggleMobileNested(parentLabel: string, categoryLabel: string) {
+    const key = `${parentLabel}::${categoryLabel}`;
+    setMobileNestedExpanded((current) => (current === key ? null : key));
   }
 
   function isPathActive(href?: string) {
@@ -518,76 +527,156 @@ export default function Header() {
 
       {mobileOpen && (
         <div className="nlxp-header-mobile-panel">
-          {navItems.map((item) => {
-            if (item.type === "link") {
+          {navItems
+            .filter((item) => item.label !== "Home")
+            .map((item) => {
+              if (item.type === "link") {
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`nlxp-header-mobile-link${
+                      isNavItemActive(item) ? " nlxp-header-mobile-link--active" : ""
+                    }`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              }
+
+              const isExpanded = mobileExpanded === item.label;
+              const isActive = isExpanded || isNavItemActive(item);
+
               return (
-                <Link
+                <div
                   key={item.label}
-                  href={item.href}
-                  className="nlxp-header-mobile-link"
-                  onClick={() => setMobileOpen(false)}
+                  className={`nlxp-header-mobile-group${
+                    isExpanded ? " nlxp-header-mobile-group--open" : ""
+                  }`}
                 >
-                  {item.label}
-                  <ChevronRightIcon className="nlxp-header-chevron-right" />
-                </Link>
-              );
-            }
+                  <button
+                    type="button"
+                    className={`nlxp-header-mobile-link nlxp-header-mobile-trigger${
+                      isActive ? " nlxp-header-mobile-link--active" : ""
+                    }`}
+                    onClick={() => toggleMobileTop(item.label)}
+                    aria-expanded={isExpanded}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronRightIcon
+                      className={`nlxp-header-chevron-right${
+                        isExpanded ? " nlxp-header-chevron-right--open" : ""
+                      }`}
+                    />
+                  </button>
 
-            const isExpanded = mobileExpanded === item.label;
+                  {isExpanded && item.type === "simple" && (
+                    <div className="nlxp-header-mobile-sublist">
+                      {item.items.map((link) => (
+                        <Link
+                          key={link.label}
+                          href={link.href}
+                          className={`nlxp-header-mobile-sublink${
+                            isPathActive(link.href) ? " nlxp-header-mobile-sublink--active" : ""
+                          }`}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
 
-            return (
-              <div key={item.label} className="nlxp-header-mobile-group">
-                <button
-                  type="button"
-                  className="nlxp-header-mobile-link nlxp-header-mobile-trigger"
-                  onClick={() => toggleMobileTop(item.label)}
-                  aria-expanded={isExpanded}
-                >
-                  {item.label}
-                  <ChevronRightIcon
-                    className={`nlxp-header-chevron-right${isExpanded ? " nlxp-header-chevron-right--open" : ""}`}
-                  />
-                </button>
+                  {isExpanded && item.type === "nested" && (
+                    <div className="nlxp-header-mobile-sublist nlxp-header-mobile-sublist--nested">
+                      {item.categories.map((category) => {
+                        const hasChildren = Boolean(category.items?.length);
+                        const categoryKey = `${item.label}::${category.label}`;
+                        const isCategoryOpen = mobileNestedExpanded === categoryKey;
 
-                {isExpanded && item.type === "simple" && (
-                  <div className="nlxp-header-mobile-sublist">
-                    {item.items.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        className="nlxp-header-mobile-sublink"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                        if (!hasChildren) {
+                          return (
+                            <Link
+                              key={category.label}
+                              href={category.href ?? "#"}
+                              className={`nlxp-header-mobile-category nlxp-header-mobile-category-link${
+                                isPathActive(category.href)
+                                  ? " nlxp-header-mobile-category--active"
+                                  : ""
+                              }`}
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              <span>{category.label}</span>
+                            </Link>
+                          );
+                        }
 
-                {isExpanded && item.type === "nested" && (
-                  <div className="nlxp-header-mobile-sublist">
-                    {getPanelColumns(item.categories).map((column, index) => (
-                      <div key={column.title ?? `column-${index}`} className="nlxp-header-mobile-column">
-                        {column.title && <p className="nlxp-header-mobile-column-title">{column.title}</p>}
-                        {column.links.map((link) => (
-                          <Link
-                            key={link.label}
-                            href={link.href}
-                            className="nlxp-header-mobile-sublink"
-                            onClick={() => setMobileOpen(false)}
+                        return (
+                          <div
+                            key={category.label}
+                            className={`nlxp-header-mobile-column${
+                              isCategoryOpen ? " nlxp-header-mobile-column--open" : ""
+                            }`}
                           >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                            <button
+                              type="button"
+                              className={`nlxp-header-mobile-category nlxp-header-mobile-category-trigger${
+                                isCategoryOpen ? " nlxp-header-mobile-category--active" : ""
+                              }`}
+                              onClick={() => toggleMobileNested(item.label, category.label)}
+                              aria-expanded={isCategoryOpen}
+                            >
+                              <span>{category.label}</span>
+                              <ChevronRightIcon
+                                className={`nlxp-header-chevron-right nlxp-header-mobile-category-chevron${
+                                  isCategoryOpen ? " nlxp-header-chevron-right--open" : ""
+                                }`}
+                              />
+                            </button>
+
+                            {isCategoryOpen && (
+                              <div className="nlxp-header-mobile-category-children">
+                                {category.items?.map((link) => (
+                                  <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className={`nlxp-header-mobile-sublink${
+                                      isPathActive(link.href)
+                                        ? " nlxp-header-mobile-sublink--active"
+                                        : ""
+                                    }`}
+                                    onClick={() => setMobileOpen(false)}
+                                  >
+                                    {link.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+
+          <Link
+            href="/book-demo"
+            className="nlxp-header-mobile-book-demo"
+            onClick={() => setMobileOpen(false)}
+          >
+            Book a Demo
+          </Link>
+
           <div className="nlxp-header-mobile-signin-row">
-            <Link href="/signin" className="nlxp-header-mobile-signin" onClick={() => setMobileOpen(false)}>
+            <Link
+              href="/signin"
+              className="nlxp-header-mobile-signin"
+              onClick={() => setMobileOpen(false)}
+            >
               Sign in help
             </Link>
           </div>

@@ -20,19 +20,49 @@ export type PromoCard = {
 };
 
 export type NavItem =
-  | { type: "link"; label: string; href: string; active?: boolean; arrow?: "up" | "down" | "none" }
-  | { type: "simple"; label: string; href: string; items: SimpleLink[]; promo?: PromoCard }
-  | { type: "nested"; label: string; href: string; categories: NestedCategory[]; promo?: PromoCard };
+  | {
+      type: "link";
+      label: string;
+      href: string;
+      active?: boolean;
+      arrow?: "up" | "down" | "none";
+    }
+  | {
+      type: "simple";
+      label: string;
+      href: string;
+      items: SimpleLink[];
+      promo?: PromoCard;
+    }
+  | {
+      type: "nested";
+      label: string;
+      href: string;
+      categories: NestedCategory[];
+      promo?: PromoCard;
+    };
 
 const promoPlaceholderImage = "/images/header-promo-placeholder.webp";
 
 export const navItems: NavItem[] = [
-  { type: "link", label: "Home", href: "/", active: true },
-  { type: "link", label: "GenZGalaxy", href: "/genzgalaxy"},
+  {
+    type: "link",
+    label: "Home",
+    href: "/",
+    active: true,
+  },
+
+  {
+    type: "link",
+    label: "GenZGalaxy",
+    href: "/genzgalaxy",
+  },
+
   {
     type: "simple",
     label: "NeuroLXP 2.1",
     href: "/neurolxp-2-1",
+
     items: [
       { label: "Digital Literacy", href: "/DigitalLiteracy" },
       { label: "Information Literacy", href: "/information-literacy" },
@@ -40,25 +70,30 @@ export const navItems: NavItem[] = [
       { label: "Financial Literacy", href: "/FinancialLitracy" },
       { label: "3Rs8Cs3Ms Literacy", href: "/literacy3rs8cs3ms" },
     ],
+
     promo: {
       variant: "photo",
-      image: "/images/education-application-knowledge-development-concept.webp",
+      image:
+        "/images/education-application-knowledge-development-concept.webp",
       imageAlt: "Learner exploring NeuroLXP 2.1 courses",
       heading: "Build Skills! Shape Your Future",
       buttonLabel: "Explore Courses",
       buttonHref: "#",
     },
   },
+
   {
     type: "simple",
     label: "Neuro Labs",
     href: "/neuro-labs",
+
     items: [
       { label: "Coding Lab", href: "/neurolabs" },
       { label: "Coding Bootcamps", href: "/CodingBootCamps" },
       { label: "Coding Challenges", href: "/CodingChallenge" },
       { label: "Coding Resources", href: "/CodingResources" },
     ],
+
     promo: {
       variant: "gradient",
       heading: "One Intelligent Platform For Smarter Learning",
@@ -66,10 +101,12 @@ export const navItems: NavItem[] = [
       buttonHref: "#",
     },
   },
+
   {
     type: "nested",
     label: "Our Customers",
     href: "/our-customers",
+
     categories: [
       {
         label: "Industries We Serve",
@@ -81,6 +118,7 @@ export const navItems: NavItem[] = [
           { label: "Nonprofit Organizations", href: "/nonprofit" },
         ],
       },
+
       {
         label: "Solution For",
         items: [
@@ -90,6 +128,7 @@ export const navItems: NavItem[] = [
         ],
       },
     ],
+
     promo: {
       variant: "photo",
       image: "/images/girl.webp",
@@ -99,45 +138,90 @@ export const navItems: NavItem[] = [
       buttonHref: "#",
     },
   },
+
   {
     type: "nested",
     label: "Features",
     href: "/features",
+
     categories: [
       {
         label: "Learning",
         items: [
-          { label: "Personalized Learning Paths", href: "/personalized-learning-paths" },
-          { label: "Goals and Tracking", href: "/goal-setting-planning" },
-          { label: "Personalization", href: "/personalization" },
+          {
+            label: "Personalized Learning Paths",
+            href: "/personalized-learning-paths",
+          },
+          {
+            label: "Goals and Tracking",
+            href: "/goal-setting-planning",
+          },
+          {
+            label: "Personalization",
+            href: "/personalization",
+          },
         ],
       },
+
       {
         label: "Augmentation",
         items: [
-          { label: "Gamified Learning", href: "/gamification" },
-          { label: "Content Management", href: "/content-curation" },
-          { label: "Learning Community", href: "/social-learning" },
+          {
+            label: "Gamified Learning",
+            href: "/gamification",
+          },
+          {
+            label: "Content Management",
+            href: "/content-curation",
+          },
+          {
+            label: "Learning Community",
+            href: "/social-learning",
+          },
         ],
       },
+
       {
         label: "Learning Eco System",
         items: [
-          { label: "Assessments", href: "/assessments" },
-          { label: "Analytics & Reporting", href: "/analytics-reporting" },
-          { label: "Career Pathways & Skilling", href: "/career-paths" },
-          { label: "Compliance & Security", href: "/compliances" },
+          {
+            label: "Assessments",
+            href: "/assessments",
+          },
+          {
+            label: "Analytics & Reporting",
+            href: "/analytics-reporting",
+          },
+          {
+            label: "Career Pathways & Skilling",
+            href: "/career-paths",
+          },
+          {
+            label: "Compliance & Security",
+            href: "/compliances",
+          },
         ],
       },
+
       {
         label: "Add On Modules",
         items: [
-          { label: "Accessibility & Inclusivity", href: "/accessibility-inclusivity" },
-          { label: "Mobile Learning", href: "/mobile-learning" },
-          { label: "Interconnectivity", href: "/interconnectivity" },
+          {
+            label: "Accessibility & Inclusivity",
+            href: "/accessibility-inclusivity",
+          },
+          {
+            label: "Mobile Learning",
+            href: "/mobile-learning",
+          },
+          {
+            label: "Interconnectivity",
+            href: "/interconnectivity",
+          },
         ],
       },
     ],
+
     promo: {
       variant: "photo",
       image: "/images/woman-typing-features.webp",
@@ -148,26 +232,60 @@ export const navItems: NavItem[] = [
       buttonHref: "#",
     },
   },
+
   {
     type: "nested",
     label: "Resources",
     href: "/resources",
+
     categories: [
       {
         label: "Use Cases",
         items: [
-          { label: "Blended Learning", href: "/blended-learning" },
-          { label: "Customer Training", href: "/customer-training" },
-          { label: "Employee Induction", href: "/employee-induction" },
-          { label: "Standards Training", href: "/standards-training" },
-          { label: "Extended Enterprise", href: "/extended-enterprise" },
+          {
+            label: "Blended Learning",
+            href: "/blended-learning",
+          },
+          {
+            label: "Customer Training",
+            href: "/customer-training",
+          },
+          {
+            label: "Employee Induction",
+            href: "/employee-induction",
+          },
+          {
+            label: "Standards Training",
+            href: "/standards-training",
+          },
+          {
+            label: "Extended Enterprise",
+            href: "/extended-enterprise",
+          },
         ],
       },
-      { label: "Media Presence", href: "/media-presence" },
-      { label: "White Papers", href: "/white-paper" },
-      { label: "Blogs", href: "/blogs" },
-      { label: "Help and Support", href: "/help-support-faqs" },
+
+      {
+        label: "Media Presence",
+        href: "/media-presence",
+      },
+
+      {
+        label: "White Papers",
+        href: "/white-paper",
+      },
+
+      {
+        label: "Blogs",
+        href: "/blogs",
+      },
+
+      {
+        label: "Help and Support",
+        href: "/help-support-faqs",
+      },
     ],
+
     promo: {
       variant: "photo",
       image: "/images/education-learning-puzzle-pieces-graphic.webp",
@@ -180,20 +298,50 @@ export const navItems: NavItem[] = [
 ];
 
 export const footerAboutLinks: SimpleLink[] = [
-  { label: "Our Mission", href: "/#story-mission-vision" },
-  { label: "Our Vision", href: "/#story-mission-vision" },
-  { label: "Our Story", href: "/#story-mission-vision" },
-  { label: "Our Team", href: "/" },
+  {
+    label: "Our Mission",
+    href: "/#story-mission-vision",
+  },
+  {
+    label: "Our Vision",
+    href: "/#story-mission-vision",
+  },
+  {
+    label: "Our Story",
+    href: "/#story-mission-vision",
+  },
+  {
+    label: "Our Team",
+    href: "/",
+  },
 ];
 
 export const footerQuickLinks: SimpleLink[] = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of use", href: "/terms-of-use" },
-  { label: "Terms of Declaration", href: "/terms-of-declaration" },
+  {
+    label: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    label: "Terms of use",
+    href: "/terms-of-use",
+  },
+  {
+    label: "Terms of Declaration",
+    href: "/terms-of-declaration",
+  },
 ];
 
 export const footerNeuroLxpLinks: SimpleLink[] = [
-  { label: "Our Customers", href: "/#our-customers" },
-  { label: "Smart Learning Paths", href: "/personalized-learning-paths" },
-  { label: "Smart Content Creation", href: "/content-curation" },
+  {
+    label: "Our Customers",
+    href: "/#our-customers",
+  },
+  {
+    label: "Smart Learning Paths",
+    href: "/personalized-learning-paths",
+  },
+  {
+    label: "Smart Content Creation",
+    href: "/content-curation",
+  },
 ];
