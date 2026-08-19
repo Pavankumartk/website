@@ -26,7 +26,7 @@ import {
   HeadphonesIcon,
 } from "../components/icons/Icons";
 // import BookDemoButton from "../components/BookDemoButton/BookDemoButton";
-// import ContactUs from "../components/contact/page";
+// // import ContactUs from "../components/contact/page";
 import styles from "./home-page.module.css";
 import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
@@ -1334,60 +1334,11 @@ function GetInTouch({ onContactClick, contactButtonRef }: { onContactClick: () =
   );
 }
 
-function ContactUsModal({ onClose }: { onClose: () => void }) {
-  const dialogRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    dialogRef.current?.focus();
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    document.body.classList.add("modal-open");
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-      document.body.classList.remove("modal-open");
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      className={styles["book-demo-modal-overlay"]}
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}>
-      <div className={styles["book-demo-modal-dialog"]} role="dialog" aria-modal="true" aria-label="Contact us" ref={dialogRef} tabIndex={-1}>
-        <button type="button" className={styles["book-demo-modal-close"]} onClick={onClose} aria-label="Close contact us form">
-          <CloseIcon className={styles["book-demo-modal-close-icon"]} />
-        </button>
-        <div className={styles["book-demo-modal-scroll"]}>
-          {/* <ContactUs /> */}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function HomePage() {
-  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
   const bookDemoButtonRef = useRef<HTMLButtonElement>(null);
-  const [isContactOpen, setIsContactOpen] = useState(false);
   const contactButtonRef = useRef<HTMLButtonElement>(null);
 
-  const openBookDemo = () => setIsBookDemoOpen(true);
-  const closeBookDemo = () => {
-    setIsBookDemoOpen(false);
-    bookDemoButtonRef.current?.focus();
-  };
 
-  const openContactUs = () => setIsContactOpen(true);
-  const closeContactUs = () => {
-    setIsContactOpen(false);
-    contactButtonRef.current?.focus();
-  };
 
   useEffect(() => {
     const hash = window.location.hash.slice(1);
@@ -1406,7 +1357,7 @@ export default function HomePage() {
       <Header />
       <main id="main-content">
         <HeroCarousel />
-      <LearningOdyssey onBookDemoClick={openBookDemo} bookDemoButtonRef={bookDemoButtonRef} />
+      <LearningOdyssey onBookDemoClick={() => {}} bookDemoButtonRef={bookDemoButtonRef} />
       <StoryMissionVision />
       <PlatformOverview />
       <PlatformPurpose />
@@ -1415,10 +1366,7 @@ export default function HomePage() {
       <LearningModules />
       <Testimonials />
       <FAQSection />
-      <GetInTouch onContactClick={openContactUs} contactButtonRef={contactButtonRef} />
-      {isBookDemoOpen && <BookDemoModal onClose={closeBookDemo} />}
-      {isContactOpen && <ContactUsModal onClose={closeContactUs} />}
-        {/* <BookDemoButton /> */}
+      <GetInTouch onContactClick={() => {}} contactButtonRef={contactButtonRef} />
       </main>
       <Footer />
     </>
