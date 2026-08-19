@@ -218,7 +218,7 @@ a {
   align-items: center;
   gap: 24px;
   color: var(--coding-heading);
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 40px;
   letter-spacing: 0.03em;
@@ -942,7 +942,7 @@ a {
 
   .coding-hero h1 {
     margin-top: 22px;
-    font-size: 34px;
+    font-size: 36px;
     line-height: 1.22;
   }
 
@@ -970,7 +970,7 @@ a {
   .coding-section-copy h2,
   .coding-challenges__intro h2 {
     margin-top: 22px;
-    font-size: 32px;
+    font-size: 36px;
     line-height: 1.25;
   }
 
@@ -1150,7 +1150,7 @@ a {
   }
 
   .coding-cta h2 {
-    font-size: 34px;
+    font-size: 36px;
     line-height: 1.25;
   }
 
@@ -1195,7 +1195,7 @@ a {
   }
 
   .coding-hero h1 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   .coding-hero__visual {
@@ -1208,7 +1208,7 @@ a {
 
   .coding-section-copy h2,
   .coding-challenges__intro h2 {
-    font-size: 29px;
+    font-size: 36px;
   }
 
   .coding-practice-card {
@@ -1305,7 +1305,7 @@ a {
   }
 
   .coding-cta h2 {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   .coding-cta__actions {
@@ -1418,20 +1418,9 @@ a {
     -8px -8px 16px #ffffff,
     8px 8px 16px #c6c6c9;
 }
-
-
 @media (max-width: 700px) {
-  .coding-first-video {
+  .coding-video-card video {
     object-fit: cover !important;
-    object-position: center 20% !important;
-  }
-}
-
-@media (min-width: 1101px) {
-  .coding-shell {
-    width: 1280px !important;
-    max-width: calc(100% - 160px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    object-position: center top !important;
   }
 }
