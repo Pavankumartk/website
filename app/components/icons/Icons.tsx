@@ -43,8 +43,8 @@ export function SparkleIcon({ className }: IconProps) {
 export function MailIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-      <rect x="5" y="8" width="22" height="16" rx="3" stroke="#FFFFFF" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M6 9.5L16 18L26 9.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="5" y="8" width="22" height="16" rx="3" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M6 9.5L16 18L26 9.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -52,7 +52,7 @@ export function MailIcon({ className }: IconProps) {
 export function FacebookIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-      <path d="M20 8h-3a4 4 0 0 0-4 4v3H9v4h4v9h4v-9h3.5L21 15h-4v-2.5a1 1 0 0 1 1-1.5h3V8Z" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M20 8h-3a4 4 0 0 0-4 4v3H9v4h4v9h4v-9h3.5L21 15h-4v-2.5a1 1 0 0 1 1-1.5h3V8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -60,9 +60,9 @@ export function FacebookIcon({ className }: IconProps) {
 export function InstagramIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-      <rect x="6" y="6" width="20" height="20" rx="6" stroke="#FFFFFF" strokeWidth="2" />
-      <circle cx="16" cy="16" r="5" stroke="#FFFFFF" strokeWidth="2" />
-      <circle cx="22.5" cy="9.5" r="1.2" fill="#FFFFFF" />
+      <rect x="6" y="6" width="20" height="20" rx="6" stroke="currentColor" strokeWidth="2" />
+      <circle cx="16" cy="16" r="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="22.5" cy="9.5" r="1.2" fill="currentColor" />
     </svg>
   );
 }
@@ -70,19 +70,39 @@ export function InstagramIcon({ className }: IconProps) {
 export function YoutubeIcon({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-      <rect x="5" y="9" width="22" height="14" rx="4" stroke="#FFFFFF" strokeWidth="2" />
-      <path d="M14 13.5L19 16L14 18.5V13.5Z" stroke="#FFFFFF" strokeWidth="2" strokeLinejoin="round" />
+      <rect x="5" y="9" width="22" height="14" rx="4" stroke="currentColor" strokeWidth="2" />
+      <path d="M14 13.5L19 16L14 18.5V13.5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
     </svg>
   );
 }
 
 export function LinkedinIcon({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-      <rect x="7" y="13" width="4" height="12" stroke="#FFFFFF" strokeWidth="2" strokeLinejoin="round" />
-      <circle cx="9" cy="8" r="2" stroke="#FFFFFF" strokeWidth="2" />
-      <path d="M16 25V13" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-      <path d="M16 18C16 15 19 13.5 21.5 15C22.7 15.7 23 17 23 18.5V25" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      className={className}
+      width="30"
+      height="30"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M6.0013 12.668H5.33464C4.07756 12.668 3.44902 12.668 3.05849 13.0585C2.66797 13.449 2.66797 14.0776 2.66797 15.3346V26.668C2.66797 27.925 2.66797 28.5536 3.05849 28.9441C3.44902 29.3346 4.07756 29.3346 5.33464 29.3346H6.0013C7.25838 29.3346 7.88692 29.3346 8.27745 28.9441C8.66797 28.5536 8.66797 27.925 8.66797 26.668V15.3346C8.66797 14.0776 8.66797 13.449 8.27745 13.0585C7.88692 12.668 7.25838 12.668 6.0013 12.668Z"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M8.66797 5.66797C8.66797 7.32482 7.32482 8.66797 5.66797 8.66797C4.01112 8.66797 2.66797 7.32482 2.66797 5.66797C2.66797 4.01112 4.01112 2.66797 5.66797 2.66797C7.32482 2.66797 8.66797 4.01112 8.66797 5.66797Z"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M16.436 12.668H15.3346C14.0776 12.668 13.449 12.668 13.0585 13.0585C12.668 13.449 12.668 14.0776 12.668 15.3346V26.668C12.668 27.925 12.668 28.5536 13.0585 28.9441C13.449 29.3346 14.0776 29.3346 15.3346 29.3346H16.0013C17.2584 29.3346 17.8869 29.3346 18.2774 28.9441C18.668 28.5536 18.668 27.925 18.668 26.668L18.6681 22.0014C18.6681 19.7924 19.3721 18.0014 21.4518 18.0014C22.4916 18.0014 23.3346 18.8969 23.3346 20.0014V26.0014C23.3346 27.2585 23.3346 27.887 23.7252 28.2776C24.1156 28.6681 24.7442 28.6681 26.0013 28.6681H26.6662C27.923 28.6681 28.5514 28.6681 28.942 28.2777C29.3325 27.8873 29.3326 27.2589 29.3329 26.0021L29.3348 18.6682C29.3348 15.3546 26.1832 12.6683 23.0637 12.6683C21.2878 12.6683 19.7036 13.5388 18.6681 14.9C18.668 14.0598 18.668 13.6398 18.4856 13.328C18.37 13.1304 18.2054 12.966 18.008 12.8505C17.6961 12.668 17.2761 12.668 16.436 12.668Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
