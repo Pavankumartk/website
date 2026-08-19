@@ -2277,22 +2277,104 @@
   }
 }
 
-/* Very narrow laptop widths:
-   use the already-existing mobile/tablet menu BEFORE overlap can happen. */
-@media (min-width: 1101px) and (max-width: 1180px) {
+
+
+
+/* 1366px LAPTOP FIT FIX ONLY */
+/* Keeps the same desktop design; only tightens spacing enough to avoid overlap. */
+@media (min-width: 1321px) and (max-width: 1400px) {
   .nlxp-header-inner {
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 14px;
   }
 
   .nlxp-header-left {
-    width: auto;
-    flex: 1 1 auto;
-    min-width: 0;
-    gap: 0;
+    gap: 42px;
   }
 
+  .nlxp-header-nav {
+    gap: 16px;
+  }
+
+  .nlxp-header-link,
+  .nlxp-header-dropdown-trigger {
+    font-size: 15px;
+    gap: 5px;
+  }
+
+  .nlxp-header-chevron {
+    width: 12px;
+    height: 12px;
+  }
+
+  .nlxp-header-signin {
+    padding: 11px 20px;
+    font-size: 15px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+
+/* FINAL LAPTOP = DESKTOP HEADER */
+/* Laptop view keeps the same desktop navigation. Hamburger is only tablet/mobile. */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .nlxp-header-nav {
+    display: flex !important;
+  }
+
+  .nlxp-header-signin {
+    display: flex !important;
+  }
+
+  .nlxp-header-burger {
+    display: none !important;
+  }
+
+  .nlxp-header-inner {
+    padding-left: clamp(16px, 1.7vw, 24px);
+    padding-right: clamp(16px, 1.7vw, 24px);
+    gap: clamp(10px, 1vw, 16px);
+  }
+
+  .nlxp-header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: clamp(24px, 3vw, 42px);
+  }
+
+  .nlxp-header-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: clamp(10px, 1.15vw, 16px);
+    justify-content: flex-end;
+  }
+
+  .nlxp-header-link,
+  .nlxp-header-dropdown-trigger {
+    font-size: clamp(12px, 1.05vw, 15px);
+    line-height: 22px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .nlxp-header-chevron {
+    width: 12px;
+    height: 12px;
+    flex: none;
+  }
+
+  .nlxp-header-signin {
+    flex: 0 0 auto;
+    padding: 10px clamp(14px, 1.45vw, 20px);
+    font-size: clamp(12px, 1.05vw, 15px);
+    white-space: nowrap;
+  }
+}
+
+/* Tablet/mobile only */
+@media (max-width: 1023px) {
   .nlxp-header-nav,
   .nlxp-header-signin {
     display: none !important;
@@ -2300,6 +2382,178 @@
 
   .nlxp-header-burger {
     display: flex !important;
-    margin-left: auto;
+  }
+}
+
+
+/* FINAL 1366 LAPTOP ALIGNMENT FIX */
+/* Keeps the same desktop header design; only balances spacing at laptop widths. */
+@media (min-width: 1240px) and (max-width: 1400px) {
+  .nlxp-header-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 28px;
+    padding-right: 28px;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .nlxp-header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 34px;
+  }
+
+  .nlxp-header-logo-link,
+  .nlxp-header-logo {
+    flex: 0 0 auto;
+  }
+
+  .nlxp-header-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-end;
+    gap: 14px;
+  }
+
+  .nlxp-header-link,
+  .nlxp-header-dropdown-trigger {
+    font-size: 14px;
+    line-height: 22px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .nlxp-header-chevron {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 auto;
+  }
+
+  .nlxp-header-signin {
+    flex: 0 0 auto;
+    padding: 10px 18px;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-left: 0;
+  }
+}
+
+/* Slightly narrower laptop widths keep the same desktop header too. */
+@media (min-width: 1024px) and (max-width: 1239px) {
+  .nlxp-header-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .nlxp-header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 22px;
+  }
+
+  .nlxp-header-nav {
+    display: flex !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .nlxp-header-signin {
+    display: flex !important;
+    flex: 0 0 auto;
+    padding: 9px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .nlxp-header-burger {
+    display: none !important;
+  }
+
+  .nlxp-header-link,
+  .nlxp-header-dropdown-trigger {
+    font-size: 12px;
+    line-height: 20px;
+    gap: 4px;
+    white-space: nowrap;
+  }
+
+  .nlxp-header-chevron {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+
+/* FINAL LAPTOP POSITION FIX - NAV MUST NOT DRIFT RIGHT */
+/* Keeps desktop header style. Only responsive spacing is adjusted. */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .nlxp-header-inner {
+    width: 100% !important;
+    max-width: 1440px !important;
+    padding-left: -44px !important;
+    padding-right: 16px !important;
+    gap: 18px !important;
+  }
+
+  .nlxp-header-left {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    /* gap: clamp(38px, 5vw, 72px) !important; */
+  }
+
+  .nlxp-header-logo-link {
+    flex: 0 0 auto !important;
+  }
+
+  .nlxp-header-nav {
+    display: flex !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    justify-content: flex-start !important;
+    gap: clamp(12px, 1.35vw, 20px) !important;
+  }
+
+  .nlxp-header-link,
+  .nlxp-header-dropdown-trigger {
+    font-size: clamp(13px, 1.05vw, 15px) !important;
+    line-height: 22px !important;
+    white-space: nowrap !important;
+  }
+
+  .nlxp-header-chevron {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .nlxp-header-signin {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    margin-left: auto !important;
+  }
+
+  .nlxp-header-burger {
+    display: none !important;
+  }
+}
+
+/* Tablet/mobile only */
+@media (max-width: 1023px) {
+  .nlxp-header-nav,
+  .nlxp-header-signin {
+    display: none !important;
+  }
+
+  .nlxp-header-burger {
+    display: flex !important;
   }
 }

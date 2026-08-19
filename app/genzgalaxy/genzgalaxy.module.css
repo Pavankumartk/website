@@ -549,15 +549,19 @@
 
 .successfulYoungBusinessmanSIcon {
   position: absolute;
-	top: 13px;
-	right: 0px;
-	width: 653px;
-	height: 978px;
-	
-	flex-shrink: 0;
-	object-fit: cover;
-	z-index: 0;
-  transform: translatex(-6);
+  top: 45px;
+  right: 35px;
+
+  width: 510px;
+  height: calc(100% - 50px);
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  z-index: 0;
+  transform: none;
 }
 
 .frameChild18 {
@@ -1442,68 +1446,38 @@
   left: 0px;
   width: 870px;
   height: 841px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translatex(92);
+  transform: translateX(92px);
 }
 
-.hexagonStack {
-  position: relative;
-  width: 780px;
-  height: 750px;
-  margin: 0 auto;
-
-}
-
-.hexagonMaroonOuter {
+.learningTogetherFrame {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: #bf1869;
+  width: 698px;
+  height: 698px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 0;
 }
 
-.hexagonMaroonCut {
+.learningTogetherPhotoWrap {
   position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
-  bottom: 6px;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: #dfe6e9;
-  z-index: 1;
-}
-
-.hexagonWhiteHex {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  right: 24px;
-  bottom: 24px;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: #ffffff;
-  z-index: 2;
-}
-
-.hexagonPhotoWrap {
-  position: absolute;
-  top: 34px;
-  left: 34px;
-  right: 30px;
-  bottom: 34px;
+  width: 590px;
+  height: 590px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 32px;
   overflow: hidden;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  z-index: 3;
+  z-index: 1;
 }
 
 .wrapperPolygon16Child {
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center;
 }
 
 .frameChild35 {
@@ -5981,7 +5955,7 @@ body {
   .hexagonMaroonCut { top:5px; left:5px; right:5px; bottom:5px; }
   .hexagonWhiteHex { top:19px; left:19px; right:19px; bottom:19px; }
   .hexagonPhotoWrap { top:28px; left:28px; right:28px; bottom:28px; }
-  .wrapperPolygon16Child { width:100%; height:100%; object-fit:cover; object-position:center 20%; }
+  .wrapperPolygon16Child { width:100%; height:100%; object-fit:cover; object-position:center top; }
   .frameWrapper6 { width:600px; flex:0 0 600px; transform:translateX(40px); }
   .frameParent30 { width:100%; gap:28px; }
   .frameWrapper7 { width:100%; height:240px; }
@@ -7221,4 +7195,63 @@ body {
 .learnMoreFlat,
 .explorePlatform {
   transition: transform 0.16s ease;
+}
+
+
+/* =========================================================
+   MOBILE ONLY — LEARNING TOGETHER IMAGE RESPONSIVE FIX
+   ADD-ONLY: existing CSS above is untouched.
+   Fixes the large 698px/590px desktop frame overflowing on mobile.
+   ========================================================= */
+@media screen and (max-width: 767px) {
+  .frameParent29 .wrapperPolygon16Parent {
+    width: min(calc(100vw - 32px), 360px) !important;
+    max-width: 360px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    margin: 8px auto 0 !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+  }
+
+  .frameParent29 .wrapperPolygon16 {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .frameParent29 .learningTogetherFrame {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 0 !important;
+  }
+
+  .frameParent29 .learningTogetherPhotoWrap {
+    position: absolute !important;
+    width: 84.53% !important;
+    height: 84.53% !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: clamp(16px, 5vw, 28px) !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+  }
+
+  .frameParent29 .learningTogetherPhotoWrap .wrapperPolygon16Child {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    transform: none !important;
+  }
 }

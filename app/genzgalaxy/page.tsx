@@ -420,13 +420,62 @@ const GenZgalaxy: NextPage = () => {
       <div className={styles.frameParent29}>
         <div className={styles.wrapperPolygon16Parent}>
           <div className={styles.wrapperPolygon16}>
-            <div className={styles.hexagonStack}>
-              <div className={styles.hexagonMaroonOuter} />
-              <div className={styles.hexagonMaroonCut} />
-              <div className={styles.hexagonWhiteHex} />
-              <div className={styles.hexagonPhotoWrap}>
-                <Image className={styles.wrapperPolygon16Child} src="/images/polygons.webp" fill sizes="780px" alt="Students learning together" />
-              </div>
+            <svg
+              className={styles.learningTogetherFrame}
+              viewBox="0 0 698 698"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <g filter="url(#learningTogetherOuterShadow)">
+                <rect x="24" y="24" width="650" height="650" rx="32" fill="#DFE6E9" />
+                <g filter="url(#learningTogetherInnerShadow)">
+                  <rect x="54" y="53.75" width="590" height="590" rx="32" fill="#DFE6E9" />
+                </g>
+              </g>
+              <defs>
+                <filter id="learningTogetherOuterShadow" x="0" y="0" width="698" height="698" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                  <feOffset dx="8" dy="8" />
+                  <feGaussianBlur stdDeviation="8" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.768627 0 0 0 0 0.768627 0 0 0 0 0.768627 0 0 0 1 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha2" />
+                  <feOffset dx="-8" dy="-8" />
+                  <feGaussianBlur stdDeviation="8" />
+                  <feComposite in2="hardAlpha2" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
+                  <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape" />
+                </filter>
+                <filter id="learningTogetherInnerShadow" x="30" y="29.75" width="638" height="638" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix2" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha3" />
+                  <feOffset dx="8" dy="8" />
+                  <feGaussianBlur stdDeviation="8" />
+                  <feComposite in2="hardAlpha3" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.768627 0 0 0 0 0.768627 0 0 0 0 0.768627 0 0 0 1 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix2" result="effect3_dropShadow" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha4" />
+                  <feOffset dx="-8" dy="-8" />
+                  <feGaussianBlur stdDeviation="8" />
+                  <feComposite in2="hardAlpha4" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
+                  <feBlend mode="normal" in2="effect3_dropShadow" result="effect4_dropShadow" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow" result="shape2" />
+                </filter>
+              </defs>
+            </svg>
+            <div className={styles.learningTogetherPhotoWrap}>
+              <Image
+                className={styles.wrapperPolygon16Child}
+                src="/images/image copy.png"
+                fill
+                sizes="590px"
+                alt="Students learning together"
+              />
             </div>
           </div>
         </div>
