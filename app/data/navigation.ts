@@ -154,7 +154,7 @@ export const navItems: NavItem[] = [
           },
           {
             label: "Goals and Tracking",
-            href: "/goal-setting-planning",
+            href: "/goal_settings",
           },
           {
             label: "Personalization",
@@ -269,17 +269,14 @@ export const navItems: NavItem[] = [
         label: "Media Presence",
         href: "/media-presence",
       },
-
       {
         label: "White Papers",
         href: "/white-paper",
       },
-
       {
         label: "Blogs",
         href: "/blogs",
       },
-
       {
         label: "Help and Support",
         href: "/help-support-faqs",
