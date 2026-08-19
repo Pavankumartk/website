@@ -81,7 +81,9 @@ export default function Footer() {
               </div>
 
               <div className={styles["nlxp-footer-column"]}>
-                <h3 className={styles["nlxp-footer-heading"]}>Quick Links</h3>
+                <h3 className={styles["nlxp-footer-heading"]}>
+                  Quick Links
+                </h3>
 
                 <ul className={styles["nlxp-footer-list"]}>
                   {footerQuickLinks.map((link) => (
@@ -143,7 +145,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@prgeeqglobalsolutions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles["nlxp-footer-social-icon"]} ${styles["nlxp-footer-social-icon--youtube"]}`}
@@ -153,7 +155,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/prgeeq-global-solutions-private-limited/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles["nlxp-footer-social-icon"]} ${styles["nlxp-footer-social-icon--linkedin"]}`}

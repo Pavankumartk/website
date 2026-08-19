@@ -1,8 +1,8 @@
 .nlxp-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
   z-index: 9999;
   width: 100%;
   background: #DFE6E9;
@@ -2172,3 +2172,134 @@
   color: #2D4CC8;
 }
 
+
+
+/* FINAL DESKTOP CLICK-ONLY NESTED DROPDOWN STATES */
+@media (min-width: 1101px) {
+  .nlxp-header-customer-category,
+  .nlxp-header-feature-category,
+  .nlxp-header-resource-item {
+    background: #DFE6E9;
+    color: #31344B;
+    box-shadow:
+      -4px -4px 8px rgba(255,255,255,.94),
+       4px  4px 8px rgba(196,196,196,.72);
+  }
+
+  .nlxp-header-customer-category.is-active,
+  .nlxp-header-feature-category.is-active,
+  .nlxp-header-resource-item.is-active {
+    color: #2D4CC8;
+    box-shadow:
+      inset -4px -4px 8px rgba(255,255,255,.96),
+      inset  4px  4px 8px rgba(196,196,196,.76);
+  }
+
+  .nlxp-header-customer-submenu,
+  .nlxp-header-feature-submenu,
+  .nlxp-header-resource-submenu {
+    background: #DFE6E9;
+    box-shadow:
+      inset -4px -4px 8px rgba(255,255,255,.92),
+      inset  4px  4px 8px rgba(196,196,196,.68);
+  }
+}
+
+
+/* Small second-layer chevrons only — existing neumorphic design unchanged */
+@media (min-width: 1101px) {
+  .nlxp-header-customer-category,
+  .nlxp-header-feature-category,
+  .nlxp-header-resource-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nlxp-header-desktop-category-arrow {
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    flex: 0 0 8px !important;
+    margin-left: 10px;
+    color: #31344B;
+    transition: transform 0.18s ease, color 0.18s ease;
+  }
+
+  .nlxp-header-customer-category.is-active .nlxp-header-desktop-category-arrow,
+  .nlxp-header-feature-category.is-active .nlxp-header-desktop-category-arrow,
+  .nlxp-header-resource-item.is-active .nlxp-header-desktop-category-arrow {
+    color: #2D4CC8;
+    transform: rotate(90deg);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE LAPTOP FIT ONLY
+   IMPORTANT:
+   - No changes to the normal/original desktop design.
+   - These rules apply only when the viewport becomes narrower.
+   - Existing dropdown, neumorphic, arrow and scroll behavior is untouched.
+   ========================================================= */
+
+/* Medium / smaller laptop widths:
+   reduce ONLY spacing enough to prevent overlap. */
+@media (min-width: 1181px) and (max-width: 1320px) {
+  .nlxp-header-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 14px;
+  }
+
+  .nlxp-header-left {
+    gap: 34px;
+  }
+
+  .nlxp-header-nav {
+    gap: 14px;
+  }
+
+  .nlxp-header-link,
+  .nlxp-header-dropdown-trigger {
+    font-size: 14px;
+    gap: 5px;
+  }
+
+  .nlxp-header-chevron {
+    width: 12px;
+    height: 12px;
+  }
+
+  .nlxp-header-signin {
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Very narrow laptop widths:
+   use the already-existing mobile/tablet menu BEFORE overlap can happen. */
+@media (min-width: 1101px) and (max-width: 1180px) {
+  .nlxp-header-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+  }
+
+  .nlxp-header-left {
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0;
+  }
+
+  .nlxp-header-nav,
+  .nlxp-header-signin {
+    display: none !important;
+  }
+
+  .nlxp-header-burger {
+    display: flex !important;
+    margin-left: auto;
+  }
+}

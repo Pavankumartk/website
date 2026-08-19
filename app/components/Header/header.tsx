@@ -131,9 +131,9 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [mobileNestedExpanded, setMobileNestedExpanded] = useState<string | null>(null);
-  const [activeCustomerCategory, setActiveCustomerCategory] = useState("Industries We Serve");
-  const [activeFeatureCategory, setActiveFeatureCategory] = useState("Learning");
-  const [activeResourceCategory, setActiveResourceCategory] = useState("Use Cases");
+  const [activeCustomerCategory, setActiveCustomerCategory] = useState<string | null>(null);
+  const [activeFeatureCategory, setActiveFeatureCategory] = useState<string | null>(null);
+  const [activeResourceCategory, setActiveResourceCategory] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const pathname = usePathname();
@@ -174,6 +174,30 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    const desktopMedia = window.matchMedia("(min-width: 1101px)");
+
+    const syncResponsiveState = (event?: MediaQueryListEvent) => {
+      const isDesktop = event ? event.matches : desktopMedia.matches;
+
+      if (isDesktop) {
+        setMobileOpen(false);
+        setMobileExpanded(null);
+        setMobileNestedExpanded(null);
+      } else {
+        setOpenMenu(null);
+        setActiveCustomerCategory(null);
+        setActiveFeatureCategory(null);
+        setActiveResourceCategory(null);
+      }
+    };
+
+    syncResponsiveState();
+    desktopMedia.addEventListener("change", syncResponsiveState);
+
+    return () => desktopMedia.removeEventListener("change", syncResponsiveState);
+  }, []);
+
+  useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       const target = event.target as HTMLElement;
       const clickedInsideHeader = headerRef.current?.contains(target);
@@ -197,16 +221,15 @@ export default function Header() {
   }, []);
 
   function toggleMenu(label: string) {
-    if (label === "Our Customers") {
-      setActiveCustomerCategory("Industries We Serve");
+    const willOpen = openMenu !== label;
+
+    if (willOpen) {
+      if (label === "Our Customers") setActiveCustomerCategory(null);
+      if (label === "Features") setActiveFeatureCategory(null);
+      if (label === "Resources") setActiveResourceCategory(null);
     }
-    if (label === "Features") {
-      setActiveFeatureCategory("Learning");
-    }
-    if (label === "Resources") {
-      setActiveResourceCategory("Use Cases");
-    }
-    setOpenMenu((current) => (current === label ? null : label));
+
+    setOpenMenu(willOpen ? label : null);
   }
 
   function toggleMobileTop(label: string) {
@@ -355,30 +378,38 @@ export default function Header() {
                               className={`nlxp-header-customer-category${
                                 isCategoryActive ? " is-active" : ""
                               }`}
-                              onMouseEnter={() => setActiveCustomerCategory(category.label)}
-                              onFocus={() => setActiveCustomerCategory(category.label)}
+                              onClick={() =>
+                                setActiveCustomerCategory((current) =>
+                                  current === category.label ? null : category.label
+                                )
+                              }
                             >
-                              {category.label}
+                              <span>{category.label}</span>
+                              <ChevronRightIcon
+                                className={`nlxp-header-desktop-category-arrow${
+                                  isCategoryActive ? " is-open" : ""
+                                }`}
+                              />
                             </button>
                           );
                         })}
                       </div>
 
-                      <div className="nlxp-header-customer-submenu">
-                        {(
-                          item.categories.find(
-                            (category) => category.label === activeCustomerCategory
-                          ) ?? item.categories[0]
-                        )?.items?.map((link) => (
-                          <Link
-                            key={link.label}
-                            href={link.href}
-                            className="nlxp-header-customer-sublink"
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </div>
+                      {activeCustomerCategory && (
+                        <div className="nlxp-header-customer-submenu">
+                          {item.categories
+                            .find((category) => category.label === activeCustomerCategory)
+                            ?.items?.map((link) => (
+                              <Link
+                                key={link.label}
+                                href={link.href}
+                                className="nlxp-header-customer-sublink"
+                              >
+                                {link.label}
+                              </Link>
+                            ))}
+                        </div>
+                      )}
                     </HeaderDropdownPanel>
                   )}
 
@@ -398,30 +429,38 @@ export default function Header() {
                               className={`nlxp-header-feature-category${
                                 isCategoryActive ? " is-active" : ""
                               }`}
-                              onMouseEnter={() => setActiveFeatureCategory(category.label)}
-                              onFocus={() => setActiveFeatureCategory(category.label)}
+                              onClick={() =>
+                                setActiveFeatureCategory((current) =>
+                                  current === category.label ? null : category.label
+                                )
+                              }
                             >
-                              {category.label}
+                              <span>{category.label}</span>
+                              <ChevronRightIcon
+                                className={`nlxp-header-desktop-category-arrow${
+                                  isCategoryActive ? " is-open" : ""
+                                }`}
+                              />
                             </button>
                           );
                         })}
                       </div>
 
-                      <div className="nlxp-header-feature-submenu">
-                        {(
-                          item.categories.find(
-                            (category) => category.label === activeFeatureCategory
-                          ) ?? item.categories[0]
-                        )?.items?.map((link) => (
-                          <Link
-                            key={link.label}
-                            href={link.href}
-                            className="nlxp-header-feature-sublink"
-                          >
-                            {link.label}
-                          </Link>
-                        ))}
-                      </div>
+                      {activeFeatureCategory && (
+                        <div className="nlxp-header-feature-submenu">
+                          {item.categories
+                            .find((category) => category.label === activeFeatureCategory)
+                            ?.items?.map((link) => (
+                              <Link
+                                key={link.label}
+                                href={link.href}
+                                className="nlxp-header-feature-sublink"
+                              >
+                                {link.label}
+                              </Link>
+                            ))}
+                        </div>
+                      )}
                     </HeaderDropdownPanel>
                   )}
 
@@ -443,10 +482,18 @@ export default function Header() {
                                 className={`nlxp-header-resource-item${
                                   isActive ? " is-active" : ""
                                 }`}
-                                onMouseEnter={() => setActiveResourceCategory("Use Cases")}
-                                onFocus={() => setActiveResourceCategory("Use Cases")}
+                                onClick={() =>
+                                  setActiveResourceCategory((current) =>
+                                    current === "Use Cases" ? null : "Use Cases"
+                                  )
+                                }
                               >
-                                {category.label}
+                                <span>{category.label}</span>
+                                <ChevronRightIcon
+                                  className={`nlxp-header-desktop-category-arrow${
+                                    isActive ? " is-open" : ""
+                                  }`}
+                                />
                               </button>
                             );
                           }
@@ -456,8 +503,7 @@ export default function Header() {
                               key={category.label}
                               href={category.href ?? "#"}
                               className="nlxp-header-resource-item"
-                              onMouseEnter={() => setActiveResourceCategory("")}
-                              onFocus={() => setActiveResourceCategory("")}
+                              onClick={() => setActiveResourceCategory(null)}
                             >
                               {category.label}
                             </Link>

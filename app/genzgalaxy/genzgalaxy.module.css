@@ -766,7 +766,7 @@
 
 .usefulResources {
   height: 32px;
-  width: 198px;
+  width: 216px;
   position: absolute;
   margin: 0;
   top: calc(50% - 16.27px);
@@ -812,7 +812,7 @@
 
 .practiceTasks {
   height: 32px;
-  width: 159px;
+  width: 183px;
   position: absolute;
   margin: 0;
   top: calc(50% - 16.27px);
@@ -858,11 +858,11 @@
 
 .careerFocusedModules {
   height: 32px;
-  width: 281px;
+  width: 299px;
   position: absolute;
   margin: 0;
   top: calc(50% - 16.27px);
-  left: 32px;
+  left: 21px;
   letter-spacing: 0.02em;
   line-height: 32px;
   font-weight: 600;
@@ -916,7 +916,7 @@
 
 .turnLearningInto {
   width: 898px;
-  height: 60px;
+  height: 92px;
   position: relative;
   letter-spacing: 0.03em;
   line-height: 60px;
@@ -1954,7 +1954,7 @@
 }
 
 .explorePlatform2 {
-  width: 169px;
+  width: 177px;
   position: relative;
   line-height: 30px;
   font-weight: 600;
