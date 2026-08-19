@@ -250,6 +250,9 @@ export default function Header() {
 
   function isNavItemActive(item: (typeof navItems)[number]) {
     if (item.type === "link") {
+      if (item.label === "Home") {
+        return pathname === "/HomePage" || pathname === "/HomePage/";
+      }
       return isPathActive(item.href);
     }
 
@@ -289,7 +292,7 @@ export default function Header() {
                 return (
                   <Link
                     key={item.label}
-                    href={item.href}
+                    href={item.label === "Home" ? "/HomePage" : item.href}
                     className={`nlxp-header-link${isNavItemActive(item) ? " nlxp-header-link--active" : ""}`}
                   >
                     {item.label}

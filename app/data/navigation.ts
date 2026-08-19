@@ -64,11 +64,26 @@ export const navItems: NavItem[] = [
     href: "/neurolxp-2-1",
 
     items: [
-      { label: "Digital Literacy", href: "/DigitalLiteracy" },
-      { label: "Information Literacy", href: "/information-literacy" },
-      { label: "Media Literacy", href: "/MediaLiteracy" },
-      { label: "Financial Literacy", href: "/FinancialLitracy" },
-      { label: "3Rs8Cs3Ms Literacy", href: "/literacy3rs8cs3ms" },
+      {
+        label: "Digital Literacy",
+        href: "/DigitalLiteracy",
+      },
+      {
+        label: "Information Literacy",
+        href: "/information-literacy",
+      },
+      {
+        label: "Media Literacy",
+        href: "/MediaLiteracy",
+      },
+      {
+        label: "Financial Literacy",
+        href: "/FinancialLitracy",
+      },
+      {
+        label: "3Rs8Cs3Ms Literacy",
+        href: "/literacy3rs8cs3ms",
+      },
     ],
 
     promo: {
@@ -88,10 +103,22 @@ export const navItems: NavItem[] = [
     href: "/neuro-labs",
 
     items: [
-      { label: "Coding Lab", href: "/neurolabs" },
-      { label: "Coding Bootcamps", href: "/CodingBootCamps" },
-      { label: "Coding Challenges", href: "/CodingChallenge" },
-      { label: "Coding Resources", href: "/CodingResources" },
+      {
+        label: "Coding Lab",
+        href: "/neurolabs",
+      },
+      {
+        label: "Coding Bootcamps",
+        href: "/CodingBootCamps",
+      },
+      {
+        label: "Coding Challenges",
+        href: "/CodingChallenge",
+      },
+      {
+        label: "Coding Resources",
+        href: "/CodingResources",
+      },
     ],
 
     promo: {
@@ -111,20 +138,44 @@ export const navItems: NavItem[] = [
       {
         label: "Industries We Serve",
         items: [
-          { label: "University and College", href: "/university" },
-          { label: "BFSI", href: "/bfsi" },
-          { label: "Retail And Healthcare", href: "/retail-healthcare" },
-          { label: "Government Institutions", href: "/government" },
-          { label: "Nonprofit Organizations", href: "/nonprofit" },
+          {
+            label: "University and College",
+            href: "/university",
+          },
+          {
+            label: "BFSI",
+            href: "/bfsi",
+          },
+          {
+            label: "Retail And Healthcare",
+            href: "/retail-healthcare",
+          },
+          {
+            label: "Government Institutions",
+            href: "/government",
+          },
+          {
+            label: "Nonprofit Organizations",
+            href: "/nonprofit",
+          },
         ],
       },
 
       {
         label: "Solution For",
         items: [
-          { label: "Corporate Training", href: "/corporate-training" },
-          { label: "E-Learning", href: "/E-Learning" },
-          { label: "Training Management", href: "/training-management" },
+          {
+            label: "Corporate Training",
+            href: "/corporate-training",
+          },
+          {
+            label: "E-Learning",
+            href: "/E-Learning",
+          },
+          {
+            label: "Training Management",
+            href: "/training-management",
+          },
         ],
       },
     ],
@@ -227,7 +278,8 @@ export const navItems: NavItem[] = [
       image: "/images/woman-typing-features.webp",
       imageAlt: "Learner using NeuroLXP personalization features",
       heading: "Learn! Grow! Succeed!",
-      description: "Discover how NeuroLXP transforms learning and training",
+      description:
+        "Discover how NeuroLXP transforms learning and training",
       buttonLabel: "Explore Personalization",
       buttonHref: "#",
     },
@@ -285,7 +337,8 @@ export const navItems: NavItem[] = [
 
     promo: {
       variant: "photo",
-      image: "/images/education-learning-puzzle-pieces-graphic.webp",
+      image:
+        "/images/education-learning-puzzle-pieces-graphic.webp",
       imageAlt: "NeuroLXP platform demo",
       heading: "See NeuroLXP in Action",
       buttonLabel: "Book a Demo",
