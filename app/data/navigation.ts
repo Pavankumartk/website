@@ -109,7 +109,7 @@ export const navItems: NavItem[] = [
       },
       {
         label: "Coding Bootcamps",
-        href: "/CodingBootCamps",
+        href: "/boot_camp",
       },
       {
         label: "Coding Challenges",
