@@ -26,7 +26,7 @@ import {
   HeadphonesIcon,
 } from "../components/icons/Icons";
 // import BookDemoButton from "../components/BookDemoButton/BookDemoButton";
-// // import ContactUs from "../components/contact/page";
+// import ContactUs from "../components/contact/page";
 import styles from "./home-page.module.css";
 import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
