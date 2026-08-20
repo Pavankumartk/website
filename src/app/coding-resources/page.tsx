@@ -1,0 +1,275 @@
+import type { NextPage } from "next";
+import Image from "next/image";
+import styles from "./coding-resources.module.css";
+import Header from "../../components/Header/header";
+import Footer from "../../components/Footer/footer";
+
+const learningCards = [
+  "Programming Guides",
+  "Code Examples & Project",
+  "Coding Fundamentals",
+  "Algorithm Practice",
+  "Clean Code Practices",
+];
+
+const supportCards = [
+  "Practice problems and coding exercises",
+  "Code snippets and reusable examples",
+  "Step-by-step problem-solving guides",
+  "Debugging and optimization tips",
+];
+
+const pillars = [
+  {
+    number: "01",
+    title: "Multi-Domain Support",
+    lead: "Build Tech Skills",
+    items: [
+      "Coding Fundamentals",
+      "Web development",
+      "Software development",
+      "Algorithmic Thinking",
+    ],
+  },
+  {
+    number: "02",
+    title: "Continuous Learning",
+    lead: "Learn Today's Tech Trends",
+    items: [
+      "Modern Frameworks",
+      "Best Practices",
+      "New development tools",
+      "Industry Skills",
+    ],
+  },
+  {
+    number: "03",
+    title: "Learn! Teach! Grow",
+    lead: "Built for Every Learner",
+    items: [
+      "Universities",
+      "Coding Bootcamps",
+      "Corporate Training",
+      "Career Learners",
+    ],
+  },
+];
+
+const CodingResources: NextPage = () => {
+  return (
+    <>
+      <Header />
+
+      <main className={styles.page}>
+        <div className={styles.shell}>
+          <div className={styles.breadcrumb}>
+            <span>Neuro Labs</span>
+
+            <Image
+              src="/icons/arrow-right-double.svg"
+              width={16}
+              height={16}
+              alt=""
+            />
+
+            <b>Coding Resources</b>
+          </div>
+
+          <section className={styles.heroFrame}>
+            <div className={styles.hero}>
+              <div className={styles.heroShape} />
+
+              <div className={styles.heroCopy}>
+                <span className={styles.pill}>Coding Resources</span>
+
+                <h1>
+                  Everything to Learn!
+                  <br />
+                  Practice! Master Coding
+                </h1>
+
+                <p>
+                  NeuroLabs Coding Resources provide learners
+                  <br />
+                  with structured materials for every stage of the programming
+                  journey.
+                </p>
+              </div>
+
+              <Image
+                className={styles.heroImage}
+                src="/icons/coding-resources.png"
+                width={1536}
+                height={1024}
+                priority
+                alt="Student learning coding on a laptop"
+              />
+            </div>
+          </section>
+
+          <section className={styles.learning}>
+            <h2>
+              Comprehensive Programming
+              <br />
+              Learning Materials
+            </h2>
+
+            <p>
+              NeuroLabs provides coding resources that support both
+              theoretical understanding and hands-on learning.
+            </p>
+
+            <div className={styles.learningCards}>
+              {learningCards.map((label) => (
+                <div className={styles.learningCard} key={label}>
+                  <Image
+                    className={styles.learningCardOuter}
+                    src="/icons/Rectangle 40 copy.svg"
+                    width={248}
+                    height={128}
+                    sizes="248px"
+                    alt=""
+                    aria-hidden="true"
+                  />
+
+                  <div className={styles.learningCardInner}>
+                    <span className={styles.learningCardText}>
+                      {label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className={styles.practice}>
+            <div className={styles.practiceIntro}>
+              <h2>Practice-Oriented Coding Support</h2>
+
+              <p>
+                Master coding through consistent practice. NeuroLabs provides
+                hands-on
+                <br />
+                resources that strengthen skills and build coding confidence.
+              </p>
+            </div>
+
+            <div className={styles.supportGrid}>
+              {supportCards.map((item, index) => (
+                <div
+                  className={`${styles.supportCard} ${
+                    styles[`accent${index}`] ?? ""
+                  }`}
+                  key={item}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className={styles.practiceOval}>
+            Strengthen skills through consistent practice
+          </div>
+
+          <section className={styles.pillars}>
+            {pillars.map((pillar) => (
+              <article
+                className={styles.pillar}
+                key={pillar.number}
+              >
+                <Image
+                  className={styles.pillarSvg}
+                  src="/icons/coding-resources-card.svg"
+                  width={424}
+                  height={630}
+                  sizes="424px"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <div className={styles.pillarContent}>
+                  <div className={styles.pillarHead}>
+                    <b>{pillar.number}</b>
+                    <span>{pillar.title}</span>
+                  </div>
+
+                  <h3>{pillar.lead}</h3>
+
+                  <div className={styles.checkList}>
+                    {pillar.items.map((item) => (
+                      <div
+                        className={styles.checkItem}
+                        key={item}
+                      >
+                        <span className={styles.checkIconCircle}>
+                          <Image
+                            src="/icons/checkmark-circle-02 copy.svg"
+                            width={24}
+                            height={24}
+                            alt=""
+                            className={styles.checkIcon}
+                          />
+                        </span>
+
+                        <span className={styles.checkText}>
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </section>
+
+          <section className={styles.growthFrame}>
+            <div className={styles.growth}>
+              <div className={styles.growthCopy}>
+                <span className={styles.pill}>
+                  Programming Growth
+                </span>
+
+                <h2>
+                  NeuroLabs Coding
+                  <br />
+                  Resources
+                </h2>
+
+                <p>
+                  Build strong programming skills with tutorials, hands-on
+                  practice, and up-to-date learning resources.
+                </p>
+              </div>
+
+              <div className={styles.videoVisual}>
+                <video
+                  className={styles.growthVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
+                  preload="auto"
+                  disablePictureInPicture
+                  controlsList="nodownload nofullscreen noremoteplayback"
+                >
+                  <source
+                    src="/videos/codingresources.mp4"
+                    type="video/mp4"
+                  />
+
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <Footer />
+    </>
+  );
+};
+
+export default CodingResources;
