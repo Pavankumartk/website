@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { flushSync } from "react-dom";
-import { useEffect, useRef, useState, type JSX, type CSSProperties, type RefObject } from "react";
+import { useEffect, useRef, useState, type JSX, type CSSProperties } from "react";
 import dynamic from "next/dynamic";
-import { GraduationCapOutlineIcon, LightbulbIcon, CursorClickIcon, TargetIcon, UsersIcon, SmartphoneIcon, GraduationCapIcon, SettingsGearIcon, LibraryIcon, BuildingIcon, ContentWritingIcon, BrainIcon, AnalyticsUpIcon, UniversityIcon, HandshakeIcon, LandmarkIcon, UserIcon, PlayIcon, HeadphonesIcon } from "@/components/icons/Icons";
+import { GraduationCapOutlineIcon, LightbulbIcon, CursorClickIcon, TargetIcon, UsersIcon, SmartphoneIcon, GraduationCapIcon, SettingsGearIcon, LibraryIcon, BuildingIcon, ContentWritingIcon, BrainIcon, AnalyticsUpIcon, UniversityIcon, HandshakeIcon, LandmarkIcon, UserIcon, PlayIcon } from "@/components/icons/Icons";
 import styles from "./home-page.module.css";
 import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/footer";
@@ -156,7 +156,7 @@ function OdysseyCard({ title, description, color, Icon }: { title: string; descr
   );
 }
 
-function LearningOdyssey({ onBookDemoClick, bookDemoButtonRef }: { onBookDemoClick: () => void; bookDemoButtonRef: RefObject<HTMLButtonElement | null> }) {
+function LearningOdyssey() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [arrowAnimationData, setArrowAnimationData] = useState<object | null>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -186,9 +186,6 @@ function LearningOdyssey({ onBookDemoClick, bookDemoButtonRef }: { onBookDemoCli
           Embark on a Learning<span className={styles["odyssey-heading-accent"]}> Odyssey</span> with NeuroLXP
         </h2>
         <p className={styles["odyssey-subtext"]}>NeuroLXP is more than a learning platform it's an intelligent platform that helps learners grow, adapt, and succeed.</p>
-        <button type="button" className={styles["odyssey-demo-button"]} onClick={onBookDemoClick} ref={bookDemoButtonRef}>
-          Book a demo
-        </button>
       </div>
 
       <div className={styles["odyssey-grid"]}>
@@ -1279,7 +1276,7 @@ function FAQSection() {
   );
 }
 
-function GetInTouch({ onContactClick, contactButtonRef }: { onContactClick: () => void; contactButtonRef: RefObject<HTMLButtonElement | null> }) {
+function GetInTouch() {
   return (
     <section className={styles["get-in-touch-section"]} aria-labelledby="get-in-touch-heading">
       <div className={styles["get-in-touch-blob"]} aria-hidden="true" />
@@ -1293,10 +1290,6 @@ function GetInTouch({ onContactClick, contactButtonRef }: { onContactClick: () =
             </h2>
             <p className={styles["get-in-touch-subtext"]}>Have questions? Our experts are here to help.</p>
           </div>
-          <button type="button" className={styles["get-in-touch-button"]} onClick={onContactClick} ref={contactButtonRef}>
-            <span className={styles["get-in-touch-button-label"]}>Contact Us</span>
-            <HeadphonesIcon className={styles["get-in-touch-button-icon"]} />
-          </button>
         </div>
         <div className={styles["get-in-touch-media"]}>
           <div className={styles["get-in-touch-frame"]} />
@@ -1310,9 +1303,6 @@ function GetInTouch({ onContactClick, contactButtonRef }: { onContactClick: () =
 }
 
 export default function HomePage() {
-  const bookDemoButtonRef = useRef<HTMLButtonElement>(null);
-  const contactButtonRef = useRef<HTMLButtonElement>(null);
-
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
@@ -1330,7 +1320,7 @@ export default function HomePage() {
       <Header />
       <main id="main-content">
       <HeroCarousel />
-      <LearningOdyssey onBookDemoClick={() => {}} bookDemoButtonRef={bookDemoButtonRef} />
+      <LearningOdyssey />
       <StoryMissionVision />
       <PlatformOverview />
       <PlatformPurpose />
@@ -1339,7 +1329,7 @@ export default function HomePage() {
       <LearningModules />
       <Testimonials />
       <FAQSection />
-      <GetInTouch onContactClick={() => {}} contactButtonRef={contactButtonRef} />
+      <GetInTouch />
       </main>
       <Footer />
     </>
