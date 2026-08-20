@@ -3,38 +3,13 @@
 import Image from "next/image";
 import { flushSync } from "react-dom";
 import { useEffect, useRef, useState, type JSX, type CSSProperties, type RefObject } from "react";
-// import dynamic from "next/dynamic";
-import Lottie from "lottie-react";
-import {
-  LightbulbIcon,
-  CursorClickIcon,
-  TargetIcon,
-  UsersIcon,
-  SmartphoneIcon,
-  SettingsGearIcon,
-  LibraryIcon,
-  BuildingIcon,
-  ContentWritingIcon,
-  BrainIcon,
-  AnalyticsUpIcon,
-  GraduationCapIcon,
-  UniversityIcon,
-  HandshakeIcon,
-  LandmarkIcon,
-  UserIcon,
-  CloseIcon,
-  HeadphonesIcon,
-} from "../components/icons/Icons";
-// import BookDemoButton from "../components/BookDemoButton/BookDemoButton";
-// import ContactUs from "../components/contact/page";
+import dynamic from "next/dynamic";
+import { GraduationCapOutlineIcon, LightbulbIcon, CursorClickIcon, TargetIcon, UsersIcon, SmartphoneIcon, GraduationCapIcon, SettingsGearIcon, LibraryIcon, BuildingIcon, ContentWritingIcon, BrainIcon, AnalyticsUpIcon, UniversityIcon, HandshakeIcon, LandmarkIcon, UserIcon, PlayIcon, HeadphonesIcon } from "@/components/icons/Icons";
 import styles from "./home-page.module.css";
-import Header from "../components/Header/header";
-import Footer from "../components/Footer/footer";
+import Header from "../../components/Header/header";
+import Footer from "../../components/Footer/footer";
 
-// const Lottie = dynamic(
-//   () => import("lottie-react").then((mod) => mod.default),
-//   { ssr: false }
-// );
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 type HeroSlide = { id: number; type: "image"; image: string; heading: string } | { id: number; type: "video"; src: string; heading: string };
 
@@ -419,7 +394,7 @@ function StoryMissionVision() {
 }
 
 const platformOverviewItems = [
-     { id: 1, label: "Universities", title: "Shaping future graduates", color: "#2D4CC8", Icon: GraduationCapIcon },
+     { id: 1, label: "Universities", title: "Shaping future graduates", color: "#2D4CC8", Icon: GraduationCapOutlineIcon },
   { id: 2, label: "Colleges", title: "Building career pathways", color: "#861109", Icon: UniversityIcon },
   { id: 3, label: "Corporates", title: "Empowering future-ready teams", color: "#67096E", Icon: BuildingIcon },
   { id: 4, label: "NGOs", title: "Driving meaningful social impact", color: "#BF1869", Icon: HandshakeIcon },
@@ -1338,8 +1313,6 @@ export default function HomePage() {
   const bookDemoButtonRef = useRef<HTMLButtonElement>(null);
   const contactButtonRef = useRef<HTMLButtonElement>(null);
 
-
-
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
@@ -1356,7 +1329,7 @@ export default function HomePage() {
     <>
       <Header />
       <main id="main-content">
-        <HeroCarousel />
+      <HeroCarousel />
       <LearningOdyssey onBookDemoClick={() => {}} bookDemoButtonRef={bookDemoButtonRef} />
       <StoryMissionVision />
       <PlatformOverview />
