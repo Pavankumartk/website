@@ -6,8 +6,9 @@ import { useEffect, useRef, useState, type JSX, type CSSProperties, type RefObje
 import dynamic from "next/dynamic";
 import { GraduationCapOutlineIcon, LightbulbIcon, CursorClickIcon, TargetIcon, UsersIcon, SmartphoneIcon, GraduationCapIcon, SettingsGearIcon, LibraryIcon, BuildingIcon, ContentWritingIcon, BrainIcon, AnalyticsUpIcon, UniversityIcon, HandshakeIcon, LandmarkIcon, UserIcon, PlayIcon, HeadphonesIcon } from "@/components/icons/Icons";
 import styles from "./home-page.module.css";
-import Header from "../components/Header/header";
-import Footer from "../components/Footer/footer";
+import Header from "../../components/Header/header";
+import Footer from "../../components/Footer/footer";
+
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 type HeroSlide = { id: number; type: "image"; image: string; heading: string } | { id: number; type: "video"; src: string; heading: string };
