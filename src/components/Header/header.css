@@ -1335,3 +1335,27 @@
   }
 }
 
+/* Shared NeuroLXP header/footer visibility */
+.nlxp-header {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 10000 !important;
+  font-family: "Segoe UI" !important;
+}
+
+.nlxp-header-inner {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+footer {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10000 !important;
+  font-family: "Segoe UI" !important;
+}

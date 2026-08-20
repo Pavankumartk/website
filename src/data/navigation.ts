@@ -42,13 +42,11 @@ export type NavItem =
       promo?: PromoCard;
     };
 
-const promoPlaceholderImage = "/images/header-promo-placeholder.webp";
-
 export const navItems: NavItem[] = [
   {
     type: "link",
     label: "Home",
-    href: "/",
+    href: "/HomePage",
     active: true,
   },
 
@@ -61,7 +59,7 @@ export const navItems: NavItem[] = [
   {
     type: "simple",
     label: "NeuroLXP 2.1",
-    href: "/neurolxp-2-1",
+    href: "/neurolxp2.o",
 
     items: [
       {
@@ -74,15 +72,15 @@ export const navItems: NavItem[] = [
       },
       {
         label: "Media Literacy",
-        href: "/MediaLiteracy",
+        href: "/medialiteracy",
       },
       {
         label: "Financial Literacy",
-        href: "/FinancialLitracy",
+        href: "#",
       },
       {
         label: "3Rs8Cs3Ms Literacy",
-        href: "/literacy3rs8cs3ms",
+        href: "#",
       },
     ],
 
@@ -93,14 +91,14 @@ export const navItems: NavItem[] = [
       imageAlt: "Learner exploring NeuroLXP 2.1 courses",
       heading: "Build Skills! Shape Your Future",
       buttonLabel: "Explore Courses",
-      buttonHref: "#",
+      buttonHref: "/neurolxp2.o",
     },
   },
 
   {
     type: "simple",
     label: "Neuro Labs",
-    href: "/neuro-labs",
+    href: "/neurolabs",
 
     items: [
       {
@@ -125,14 +123,14 @@ export const navItems: NavItem[] = [
       variant: "gradient",
       heading: "One Intelligent Platform For Smarter Learning",
       buttonLabel: "Explore Platform",
-      buttonHref: "#",
+      buttonHref: "/neurolabs",
     },
   },
 
   {
     type: "nested",
     label: "Our Customers",
-    href: "/our-customers",
+    href: "/university",
 
     categories: [
       {
@@ -144,19 +142,19 @@ export const navItems: NavItem[] = [
           },
           {
             label: "BFSI",
-            href: "/bfsi",
+            href: "#",
           },
           {
             label: "Retail And Healthcare",
-            href: "/retail-healthcare",
+            href: "/retail-health",
           },
           {
             label: "Government Institutions",
-            href: "/government",
+            href: "#",
           },
           {
             label: "Nonprofit Organizations",
-            href: "/nonprofit",
+            href: "#",
           },
         ],
       },
@@ -170,11 +168,11 @@ export const navItems: NavItem[] = [
           },
           {
             label: "E-Learning",
-            href: "/E-Learning",
+            href: "/e_learning",
           },
           {
             label: "Training Management",
-            href: "/training-management",
+            href: "/training_managment",
           },
         ],
       },
@@ -193,7 +191,7 @@ export const navItems: NavItem[] = [
   {
     type: "nested",
     label: "Features",
-    href: "/features",
+    href: "/personalization",
 
     categories: [
       {
@@ -219,15 +217,15 @@ export const navItems: NavItem[] = [
         items: [
           {
             label: "Gamified Learning",
-            href: "/gamification",
+            href: "#",
           },
           {
             label: "Content Management",
-            href: "/content-curation",
+            href: "/content-intelligence",
           },
           {
             label: "Learning Community",
-            href: "/social-learning",
+            href: "#",
           },
         ],
       },
@@ -237,7 +235,7 @@ export const navItems: NavItem[] = [
         items: [
           {
             label: "Assessments",
-            href: "/assessments",
+            href: "/assissments",
           },
           {
             label: "Analytics & Reporting",
@@ -245,11 +243,11 @@ export const navItems: NavItem[] = [
           },
           {
             label: "Career Pathways & Skilling",
-            href: "/career-paths",
+            href: "#",
           },
           {
             label: "Compliance & Security",
-            href: "/compliances",
+            href: "/compliance&security",
           },
         ],
       },
@@ -259,7 +257,7 @@ export const navItems: NavItem[] = [
         items: [
           {
             label: "Accessibility & Inclusivity",
-            href: "/accessibility-inclusivity",
+            href: "/accessibility",
           },
           {
             label: "Mobile Learning",
@@ -267,7 +265,7 @@ export const navItems: NavItem[] = [
           },
           {
             label: "Interconnectivity",
-            href: "/interconnectivity",
+            href: "/inter_connectivity",
           },
         ],
       },
@@ -281,14 +279,14 @@ export const navItems: NavItem[] = [
       description:
         "Discover how NeuroLXP transforms learning and training",
       buttonLabel: "Explore Personalization",
-      buttonHref: "#",
+      buttonHref: "/personalization",
     },
   },
 
   {
     type: "nested",
     label: "Resources",
-    href: "/resources",
+    href: "/blogs",
 
     categories: [
       {
@@ -304,34 +302,37 @@ export const navItems: NavItem[] = [
           },
           {
             label: "Employee Induction",
-            href: "/employee-induction",
+            href: "/employee_induction",
           },
           {
             label: "Standards Training",
-            href: "/standards-training",
+            href: "/standard_training",
           },
           {
             label: "Extended Enterprise",
-            href: "/extended-enterprise",
+            href: "/extendedenterprise_learning",
           },
         ],
       },
 
       {
         label: "Media Presence",
-        href: "/media-presence",
+        href: "/media_presence",
       },
+
       {
         label: "White Papers",
-        href: "/white-paper",
+        href: "#",
       },
+
       {
         label: "Blogs",
         href: "/blogs",
       },
+
       {
         label: "Help and Support",
-        href: "/help-support-faqs",
+        href: "/help_support",
       },
     ],
 
@@ -350,41 +351,41 @@ export const navItems: NavItem[] = [
 export const footerAboutLinks: SimpleLink[] = [
   {
     label: "Our Mission",
-    href: "/#story-mission-vision",
+    href: "/HomePage#story-mission-vision",
   },
   {
     label: "Our Vision",
-    href: "/#story-mission-vision",
+    href: "/HomePage#story-mission-vision",
   },
   {
     label: "Our Story",
-    href: "/#story-mission-vision",
+    href: "/HomePage#story-mission-vision",
   },
   {
     label: "Our Team",
-    href: "/",
+    href: "/HomePage",
   },
 ];
 
 export const footerQuickLinks: SimpleLink[] = [
   {
     label: "Privacy Policy",
-    href: "/privacy-policy",
+    href: "#",
   },
   {
     label: "Terms of use",
-    href: "/terms-of-use",
+    href: "#",
   },
   {
     label: "Terms of Declaration",
-    href: "/terms-of-declaration",
+    href: "#",
   },
 ];
 
 export const footerNeuroLxpLinks: SimpleLink[] = [
   {
     label: "Our Customers",
-    href: "/#our-customers",
+    href: "/HomePage#our-customers",
   },
   {
     label: "Smart Learning Paths",
@@ -392,6 +393,6 @@ export const footerNeuroLxpLinks: SimpleLink[] = [
   },
   {
     label: "Smart Content Creation",
-    href: "/content-curation",
+    href: "/content-intelligence",
   },
 ];

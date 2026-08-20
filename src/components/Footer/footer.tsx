@@ -19,7 +19,18 @@ import styles from "./footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles["nlxp-footer"]}>
+    <footer
+      className={styles["nlxp-footer"]}
+      style={{
+        display: "block",
+        visibility: "visible",
+        opacity: 1,
+        width: "100%",
+        position: "relative",
+        zIndex: 10000,
+        fontFamily: '"Segoe UI"',
+      }}
+    >
       <ScrollToTopButton />
 
       <div className={styles["nlxp-footer-inner"]}>
@@ -38,11 +49,13 @@ export default function Footer() {
                 <span className={styles["nlxp-footer-tagline-text"]}>
                   One Platform
                 </span>
+
                 <SparkleIcon className={styles["nlxp-footer-sparkle"]} />
 
                 <span className={styles["nlxp-footer-tagline-text"]}>
                   Endless Learning
                 </span>
+
                 <SparkleIcon className={styles["nlxp-footer-sparkle"]} />
 
                 <span className={styles["nlxp-footer-tagline-text"]}>
@@ -69,7 +82,9 @@ export default function Footer() {
           <div className={styles["nlxp-footer-right"]}>
             <div className={styles["nlxp-footer-columns"]}>
               <div className={styles["nlxp-footer-column"]}>
-                <h3 className={styles["nlxp-footer-heading"]}>About us</h3>
+                <h3 className={styles["nlxp-footer-heading"]}>
+                  About us
+                </h3>
 
                 <ul className={styles["nlxp-footer-list"]}>
                   {footerAboutLinks.map((link) => (
@@ -102,7 +117,9 @@ export default function Footer() {
               <div className={styles["nlxp-footer-column"]}>
                 <h3 className={styles["nlxp-footer-heading"]}>
                   NeuroLXP
-                  <sup className={styles["nlxp-footer-heading-tm"]}>TM</sup>
+                  <sup className={styles["nlxp-footer-heading-tm"]}>
+                    TM
+                  </sup>
                 </h3>
 
                 <ul className={styles["nlxp-footer-list"]}>

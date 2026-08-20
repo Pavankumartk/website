@@ -272,7 +272,19 @@ export default function Header() {
   }
 
   return (
-    <header className={`nlxp-header${isLayoutReady ? " layoutReady" : ""}`} ref={headerRef}>
+    <header
+      className="nlxp-header layoutReady"
+      ref={headerRef}
+      style={{
+        display: "block",
+        visibility: "visible",
+        opacity: 1,
+        width: "100%",
+        position: "relative",
+        zIndex: 10000,
+        fontFamily: '"Segoe UI"',
+      }}
+    >
       <div className="nlxp-header-inner">
         <div className="nlxp-header-left">
           <Link href="/" className="nlxp-header-logo-link">
@@ -292,7 +304,7 @@ export default function Header() {
                 return (
                   <Link
                     key={item.label}
-                    href={item.label === "Home" ? "/HomePage" : item.href}
+                   href={item.href}
                     className={`nlxp-header-link${isNavItemActive(item) ? " nlxp-header-link--active" : ""}`}
                   >
                     {item.label}
